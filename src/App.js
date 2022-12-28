@@ -1,18 +1,22 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import AppHeader from "./components/AppHeader";
+import MicroFrontend from "./MicroFrontend";
+
+const userHost = "http://localhost:3001";
+
+const User = () => {
+  console.log("User being called...");
+  return <MicroFrontend host={userHost} name="User" />;
+};
 
 function App() {
   return (
     <BrowserRouter>
       <React.Fragment>
-        <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-          <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
-          <p className="text-gray-500 text-lg">
-            React and Tailwind CSS in action
-          </p>
-        </div>
+        {/* <AppHeader /> */}
         <Routes>
-          <Route exact path="/" />
+          <Route exact path="/" element={<User />} />
         </Routes>
       </React.Fragment>
     </BrowserRouter>
